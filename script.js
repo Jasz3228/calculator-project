@@ -1,32 +1,50 @@
+// Variables for each part of the operation
+
+let firstNum = "";
+let secondNum = "";
+let operator = "";
+
+
 // Create functions for basic math operator +, -, *, /,
 
-function add(...nums) {
-  const sum = nums.reduce((accumulator, current) => accumulator + current, 0);
-
-  return sum;
+function add(a, b) {
+ return a + b;
 };
  
-function subtract(...nums) {
-  const difference = nums.reduce((accumulator, current) => accumulator - current);
+function subtract(a, b) {
+  return a - b;
+};
 
-  return difference;
-}
+function multiply(a, b) {
+ return a * b;
+};
 
-function multiply(...nums) {
-  const product = nums.reduce((accumulator, current) => accumulator * current);
+function divide(a, b) {
+  if (b === 0) {
+    return "ERROR";
+  }
+  return a / b;
+};
+
+
+// Operate function that takes an operator and two numbers then calls one of the above functions on the numbers.
+
+function operate(firstNum, operator, secondNum) {
+  // Convert strings to numbers
+  const a = Number(firstNum);
+  const b = Number(secondNum);
   
-  return product;
-}
+  switch (operator) {
+    case "+":
+      return add(a, b);
+    case "-":
+      return subtract(a, b);
+    case "*":
+      return multiply(a, b);
+    case "/":
+      return divide(a, b);
+    default:
+      return "Invalid Operator"
+  }
+};
 
-function divide(...nums) {
-  const quotient = nums.reduce((accumulator, current) => accumulator / current);
-
-  return quotient;
-}
-console.log(add(50, 50, 50,100));
-
-console.log(subtract(10, 2,5));
-
-console.log(multiply(5,2,5));
-
-console.log(divide(100, 2, 2));
