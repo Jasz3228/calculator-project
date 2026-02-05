@@ -70,6 +70,19 @@ operatorButtons.forEach(button => {
   button.addEventListener("click", () => {
     firstNum = display.textContent; // Saves the current display to firstNum
     operator = button.textContent; // Saves the button to the operator variable
-    display.textContent = "0"; // Resets the display for second num
+    display.textContent = "0" // Resets the display for second num
   });
+});
+
+// Making the equalsButton work.
+
+const equalsButton = document.querySelector("#equals");
+
+equalsButton.addEventListener("click", () => {
+  secondNum = display.textContent;
+  const result = operate(firstNum, operator, secondNum);
+  display.textContent = result;
+
+  firstNum = result;
+  secondNum = "";
 });
