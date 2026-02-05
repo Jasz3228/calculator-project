@@ -48,3 +48,28 @@ function operate(firstNum, operator, secondNum) {
   }
 };
 
+// Selecting the elements. Displaying the numbers 
+const display = document.querySelector("#display");
+const numberButtons = document.querySelectorAll(".number");
+
+numberButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    if (display.textContent === "0") {
+      display.textContent = button.textContent;
+    } else {
+      display.textContent += button.textContent;
+    }
+  });
+});
+
+// Handling the operator click
+
+const operatorButtons = document.querySelectorAll(".operator");
+
+operatorButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    firstNum = display.textContent; // Saves the current display to firstNum
+    operator = button.textContent; // Saves the button to the operator variable
+    display.textContent = "0"; // Resets the display for second num
+  });
+});
