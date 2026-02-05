@@ -74,7 +74,7 @@ operatorButtons.forEach(button => {
   });
 });
 
-// Making the equalsButton work.
+// Making the equalsButton function.
 
 const equalsButton = document.querySelector("#equals");
 
@@ -85,4 +85,15 @@ equalsButton.addEventListener("click", () => {
 
   firstNum = result;
   secondNum = "";
+});
+
+// Making the clear button function.
+
+const clearButton = document.querySelector(".clear");
+
+clearButton.addEventListener("click", () => {
+  firstNum = "";
+  secondNum = "";
+  operator = "";
+  display.textContent = "0";
 });
