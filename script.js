@@ -68,9 +68,19 @@ const operatorButtons = document.querySelectorAll(".operator");
 
 operatorButtons.forEach(button => {
   button.addEventListener("click", () => {
-    firstNum = display.textContent; // Saves the current display to firstNum
+    if (firstNum !== "" && operator !== "") {
+      secondNum = display.textContent;
+      const result = operate(firstNum, operator, secondNum);
+      display.textContent = result;
+
+      firstNum = result;
+    } else {
+      firstNum = display.textContent;
+    }
+
     operator = button.textContent; // Saves the button to the operator variable
-    display.textContent = "0" // Resets the display for second num
+
+    display.textContent = "0"; // Resets the display for second num
   });
 });
 
@@ -97,3 +107,13 @@ clearButton.addEventListener("click", () => {
   operator = "";
   display.textContent = "0";
 });
+
+// Decimal click listener
+
+const decimalButton = document.querySelector("#decimal");
+
+decimalButton.addEventListener("click", () => {
+  if (!display.textContent.includes(".")) {
+    display.textContent += ".";
+  }
+});  
