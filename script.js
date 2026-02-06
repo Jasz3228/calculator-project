@@ -113,7 +113,7 @@ equalsButton.addEventListener("click", () => {
 
 // Making the clear button function.
 
-const clearButton = document.querySelector(".clear");
+const clearButton = document.querySelector("#clear");
 
 clearButton.addEventListener("click", () => {
   firstNum = "";
